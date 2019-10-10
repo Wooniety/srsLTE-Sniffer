@@ -1,8 +1,19 @@
 #Documentation for IMSI catcher
 ------
-##Contents
-- [What it does in a summary](#Usage)
-- [Files](#Files) - What was modified and what was added
+## Contents
+- What it does in a summary
+- Wireshark 
+- Files
+- What the Files do  
+  - loop_catcher.sh
+  - pdsch_ue
+  - parse-data.c
+  - convert_to_csv.c
+  - cell_measurement
+- Why the stuff could be useful
+- Future Work
+- References
+
 
 ---
 ### What it does in a summary
@@ -15,7 +26,51 @@ Besides srsLTE, make sure the package **text2pcap** is installed.
 cd /home/pi/srsLTE/build/lib/examples
 bash loop_catcher.sh
 ```
-___
+---
+## What it ~~could~~ captured
+- Master Information Block  
+  Very important to if you want to decode everything else but does not really hold information besides that.
+- System Information Block 
+  - SIB1
+    - PLMN ID  
+      - Country Code (MCC)
+      - Operator (MNC)
+  - SIB2 -- TODO
+    - Some system configuration settings
+      Theoroetically could make a rouge eNB using the settings from SIB2
+      > From this article
+- Paging requests
+  - IMSI (Not more than 15 digits)
+    - MCC (3)
+    - MNC (2-3)
+    - MSIN (9-10)
+  - S-TMSI (40 bits)
+    - MMEC
+    - M-TMSI
+
+---
+
+## Reading Wireshark files
+Captured stuff is in _imsi.txt_
+
+#### Useful filters
+- Packets with IMSI in it - `==1`  
+- Only s-TMSI - `==0`
+- Strange packets that contain s-tmsi with IMSI - `== 1 && frame.len > `
+
+#### Reading the hex
+**pdsch_ue** will dump out raw hex bytes. To read it in a wireshark format, **text2pcap** is used. 
+
+A header needs to be fixed before the hex dump for it to be read.  
+
+Wireshark headers used for this:
+- Paging request  
+  `0000`
+- SIB1
+  `0000`
+- SIB2
+  `0000`
+
 ##Files
 <table>
 	<thead>
@@ -50,6 +105,7 @@ ___
 		</tr>
 	</tbody>
 </table>
+
 ---
 ##What the files do
 
@@ -64,10 +120,12 @@ Each time the process ends, it runs **convert_to_csv.c** to get _imsi.csv_ as we
 Maybe the frequency of that should be changed as when there are a lot of payloads collected, the conversion to pcap can take awhile, delaying the next time **pdsch_ue** can be run
 
 ---
-###pdsch_ue -- From srsLTE, this is the IMSI catcher
-Location:  
-- /home/pi/srsLTE/build/lib/examples/pdsch_ue -- executable  
-- /home/pi/srsLTE/lib/examples/pdsch_ue.c -- source file
+###pdsch_ue
+From srsLTE, this is the IMSI catcher
+
+>Location:
+>- /home/pi/srsLTE/build/lib/examples/pdsch_ue -- executable  
+>- /home/pi/srsLTE/lib/examples/pdsch_ue.c -- source file
 
 The IMSI catcher. functions that saves captured payloads are in **parse_data.c**
 
@@ -88,10 +146,14 @@ char *pcap_data = "imsi_pcap.txt";
 
 1. Searches for a cell. If after multiple tries and a cell is still not found, try double checking the frequency.
 > To get a frequency if you don't know it:  
-Samsung:  Dial \*#0011#  
-Iphone:  Dial \*3001#12345#\* and press the call button  
-  Convert the EARFCN to a frequency using http://niviuk.free.fr/lte_band.php  
-2. Once cell is found, it enters the main loop attempts to decode the MIB (around line 670). 
+
+>- Samsung:  
+  Dial \*#0011#  
+>- Iphone:  
+Dial \*3001#12345#\* and press the call button  
+
+>  Convert the EARFCN to a frequency using http://niviuk.free.fr/lte_band.php  
+2. Once cell is found, it enters the main loop and attempts to decode the MIB (around line 670). 
 >`save_bytes` is a function from **parse_data.c** that is trying to break up how to decode the MIB which is in binary. That function is also commented out inside **parse_data.c**
 
 ```C
@@ -133,7 +195,12 @@ Side note:
 `n = srslte_ue_mib_decode(&ue_mib, bch_payload, NULL, &sfn_offset);` and `n = srslte_ue_dl_decode(&ue_dl, data, 0, sfn*10+srslte_ue_sync_get_sfidx(&ue_sync), acks);` is really important because those functions will return data[0]  
 
 ---
-### parse-data.c -- all the functions that captures payloads while pdsch_ue is running
+### parse-data.c 
+All the functions that captures payloads while pdsch_ue is running  
+
+>Location:
+/home/pi/srsLTE/lib/include/srsLTE/parse-data.c
+
 Functions that are actually being called in the program. Refer to actual code to read the comments.
 ```C
 //All fo this is after line 110
@@ -152,7 +219,7 @@ save_bytes(char *pcap, char *output, char *type, uint8_t *x, const uint32_t len)
 append_to_file(char *filename, char *string){
 ```
 
-Although **save_bytes** should be elaborated on since it's doing all the work. Specifically **print_IMSI**.  
+`save_bytes` should be elaborated on since it's doing all the work. Specifically `print_IMSI` which is called when save_bytes is used to read the paging requests from **pdsch_ue**. 
 
 ```C
 void print_IMSI(FILE *pcap, FILE *output, uint8_t *x, const uint32_t len){
@@ -174,8 +241,9 @@ void print_IMSI(FILE *pcap, FILE *output, uint8_t *x, const uint32_t len){
   fclose(p);
 
   for (int i=2; i<len*2; i++){
+    //This is checking if an IMSI exists.
     if (payload[i] == '9' && payload[i+1] == '5' && !(payload[i+2]=='0' && payload[i+3]=='0') && !(payload[i+4]=='0' && payload[i+5]=='0') && !(payload[i+6]=='0' && payload[i+7]=='0' && payload[i+8]=='0' && payload[i+9]=='0') && (payload[i+15] == '8' || payload[i+16] == '8')){
-      is_imsi = true;
+      is_imsi = true;l
       for (int k=i+1; k<=i+15; k++){
         if (isdigit(payload[k])==0){
           is_imsi = false;
@@ -191,14 +259,67 @@ void print_IMSI(FILE *pcap, FILE *output, uint8_t *x, const uint32_t len){
   }
 }
 ```
+Payload is printed to payload.txt (so if it crashes you can easily see what was the last payload it crashed at.)  
+Also there were some issues storing the payload directly ~~most probably because my C is atrocious~~ into a variable and printing it. Then printed into a text2pcap format in _imsi_pcap.txt_ and _imsi.txt_  
+
+Not going too much into detail about how it looks for IMSI since it's more in-depth in **convert_to_csv**.  
+Over here it's just checking if an IMSI exists. If it does, it will filter it out to _imsi.txt_.
 
 ---
 ###convert_to_csv.c -- ~~somewhat~~ parses captured payloads from _imsi.txt_ to _imsi.csv
+Runs after **pdsch_ue** and converts the filtered IMSI in _imsi.txt_ to a csv file.
+> Can also be used to filter IMSI as long as it's in the right format. 
+
+Checking if IMSI exists in the payload  
+Criteria for IMSI:  
+- In the payload, the IMSI appears like this
+  > [9][IMSI Number][8]
+- IMSI = MCC + MNC + MSIN  
+  - MNC must be more than 0
+  - MCC must be between 500 and 599  
+  > [9][5][ ][ ][MNC][MSIN][8]
+- Does not contain hex, hence whole string can only be made of digits.
+```C
+for (int i=0; i<strlen(payload); i++){
+  if (payload[i] == '9' && payload[i+1] == '5' && !(payload[i+2]=='0' && payload[i+3]=='0') && !(payload[i+4]=='0' && payload[i+5]=='0') && !(payload[i+6]=='0' && payload[i+7]=='0' && payload[i+8]=='0' && payload[i+9]=='0') && (payload[i+15] == '8' || payload[i+16] == '8')){
+    for (int j=16; j>14; j--){
+      if (payload[i+j] == '8'){
+        imsi_index = i+1;
+        imsi_length = j-1;
+        found_imsi = true;
+        break;
+      }
+    }  
+  }
+}
+```
+Once IMSI is found, based on the index just carve it out from there.
+
+However there are occasional exceptions where S-TMSI is caught in the same frame as IMSI. 
+
+Still needs a bit of fixing to find the S-TMSI if it appears after the TMSI
+```C
+if (imsi_index > 14 && index > 14 && counter != 1){
+    print_s_tmsi(csv, payload, index-11, 10, s_tmsi_check, s_tmsi_checked); 
+    index -= 10;
+    s_tmsi_check = false;
+  } /*else if (payload[imsi_length+index+2] != '0' && payload[imsi_length+index+3] != '0' && index >= imsi_index && index+imsi_length < strlen(payload)){
+    print_s_tmsi(csv, payload, index+imsi_length+1, 10, s_tmsi_check, s_tmsi_checked);
+    index += 10;
+    s_tmsi_check = false;
+  } */else {
+    index = imsi_index;
+    counter++;
+  }
+}
+```
+
 
 ---
 ### cell_measurement -- TODO
 SIB1 and SIB2 blocks can be captured here. SIB1 is captured but still working out where SIB2 is. Theoretically it should be in the same payload as SIB1 since when it was put through wireshark, there were a lot of extra bytes. Need to confirm though.
 
+---
 ### Files that are not code.
 - **payload.txt** -- stores the most recent payload captured. Read by **pdsch_ue** to store payload to other files.
 - **imsi.pcap** -- all the payloads with the paging header added in front for it to be formatted into a wireshark with
@@ -207,8 +328,12 @@ SIB1 and SIB2 blocks can be captured here. SIB1 is captured but still working ou
 -- **imsi.csv** -- The output file. Filtered out IMSI's are broken down into country code(MCC), operator(MNC), and identity number assigned by operator(MSIN). If S-TMSI is captured in the same frame, it is included as well.
 
 ------
-##Why the information could be useful
+## Why the information could be useful
 
-##Stuff that could be explored ~~AKA unfinished~~
 
-#References
+------
+## Future work
+
+
+------
+## References

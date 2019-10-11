@@ -337,3 +337,14 @@ SIB1 and SIB2 blocks can be captured here. SIB1 is captured but still working ou
 
 ------
 ## References
+- Convert EARFCN to frequency
+http://niviuk.free.fr/lte_band.php
+4G/LTE IMSI Catchers for Non-Programmers
+https://arxiv.org/pdf/1702.04434.pdf
+LTE security, protocol explotra and location tracking experimentation with low-cost software radio
+https://arxiv.org/pdf/1607.05171.pdf
+https://sites.google.com/site/lteencyclopedia/lte-acronyms
+http://rogerpiquerasjover.net/LTE_5G_security_VATech.pdf
+https://arxiv.org/pdf/1510.07563.pdf
+https://www.sharetechnote.com/html/Handbook_LTE_IDs_in_LTE.html
+https://github.com/tysonv7/CS3235-Project-

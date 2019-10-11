@@ -1,0 +1,1249 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.woff) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+    color:#333;
+    background:#fff;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+@media print {
+  body .markdown-body {
+    padding: 0;
+    border: none;
+  }
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-documentation-for-imsi-catcher" class="anchor" href="#documentation-for-imsi-catcher" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation for IMSI catcher</h1>
+<hr>
+<h2>
+<a id="user-content-contents" class="anchor" href="#contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contents</h2>
+<ul>
+<li><a href="#what-it-does-in-a-summary">What it does</a></li>
+<li><a href="#what-it-could-capture">Captured stuff</a></li>
+<li><a href="#reading-wireshark-files">Wireshark</a></li>
+<li><a href="#files">Files</a></li>
+<li>
+<a href="#what-the-files-do">What the Files do</a>
+<ul>
+<li><a href="#loop_catchersh">loop_catcher.sh</a></li>
+<li><a href="#pdsch_ue">pdsch_ue</a></li>
+<li><a href="#parse_datac">parse_data.c</a></li>
+<li><a href="#convert_to_csvc">convert_to_csv.c</a></li>
+<li><a href="#cell_measurement">cell_measurement</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+</li>
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<hr>
+<h3>
+<a id="user-content-what-it-does-in-a-summary" class="anchor" href="#what-it-does-in-a-summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What it does in a summary</h3>
+<p>Catches IMSI (The unique identifiers for SIM cards) using <strong>pdsch_ue</strong> and parses paging requests into <em>imsi.pcap</em> while IMSI's are filtered into <em>imsi.csv</em></p>
+<h3>
+<a id="user-content-running-the-catcher" class="anchor" href="#running-the-catcher" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running The Catcher</h3>
+<p>Besides srsLTE, make sure the package <strong>text2pcap</strong> is installed.</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> /home/pi/srsLTE/build/lib/examples
+bash loop_catcher.sh</pre></div>
+<p>If <strong>pdsch_ue</strong> succesfully found a cell, it should show stuff in the screenshot below.
+<a href="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/run.png" target="_blank" rel="noopener noreferrer"><img src="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/run.png" alt="" title="Terminal fills up very quickly once the main loop is in the stage of decoding PDSCH" style="max-width:100%;"></a></p>
+<p>If it is catching the signal properly, there should be a nice constellation.
+<a href="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/constellation1.png" target="_blank" rel="noopener noreferrer"><img src="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/constellation1.png" alt="" style="max-width:100%;"></a>
+<a href="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/constellation2.png" target="_blank" rel="noopener noreferrer"><img src="/home/pi/Desktop/Documentation%20for%20IMSI%20Catcher/Screenshots/constellation2.png" alt="" style="max-width:100%;"></a></p>
+<ul>
+<li>PDSCH - Equalised Symbols<br>
+Should not be too crazy. The 4 dots should be very clear. Doesn't show if something is wrong with the signal.</li>
+<li>PDCCH - Equalised Symbols<br>
+The main 5 dots should be distinguishable at least. Gets fuzzy sometimes. If there is nothing/completely scattered (sometimes concentrated in the centre) restart the program.</li>
+<li>Channel Response Magnitude<br>
+As long as it doesn't look like a seismograph during a massive earthquake, it's cool.</li>
+<li>PSS Cross-Corr abs value<br>
+Curve should be very distinguishable. The first to freak out and show very intense activity if the signal messes up.</li>
+</ul>
+<hr>
+<h2>
+<a id="user-content-what-it-could-capture" class="anchor" href="#what-it-could-capture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What it could capture</h2>
+<ul>
+<li>Master Information Block<br>
+Very important to if you want to decode everything else but does not really hold information besides that.</li>
+<li>System Information Block
+<ul>
+<li>SIB1
+<ul>
+<li>PLMN ID
+<ul>
+<li>Country Code (MCC)</li>
+<li>Operator (MNC)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SIB2 -- TODO
+<ul>
+<li>Some system configuration settings
+Theoroetically could make a rouge eNB using the settings from SIB2
+<blockquote>
+<p>recieved powerthreshold  to  trigger  a  handoff  to  an  adjacent  cell  and  aseries  of  configuration  parameters  that  could  be  leveraged  toconfigure a rogue base station. [3]</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Paging requests
+<ul>
+<li>IMSI (Not more than 15 digits)
+<ul>
+<li>MCC (3)</li>
+<li>MNC (2-3)</li>
+<li>MSIN (9-10)</li>
+</ul>
+</li>
+<li>S-TMSI (40 bits)
+<ul>
+<li>MMEC</li>
+<li>M-TMSI</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>
+<a id="user-content-reading-wireshark-files" class="anchor" href="#reading-wireshark-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading Wireshark files</h2>
+<p>Captured stuff is in <em>imsi.txt</em></p>
+<h4>
+<a id="user-content-useful-filters" class="anchor" href="#useful-filters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Useful filters</h4>
+<ul>
+<li>Packets with IMSI in it - <code>lte-rrc.ue_Identity == 1</code>
+</li>
+<li>Only s-TMSI - <code>lte-rrc.ue_Identity == 0</code>
+</li>
+<li>Strange packets that contain s-tmsi with IMSI - <code>lte-rrc.ue_Identity == 1 &amp;&amp; frame.len &gt; </code>
+</li>
+</ul>
+<h4>
+<a id="user-content-reading-the-hex" class="anchor" href="#reading-the-hex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading the hex</h4>
+<p><strong>pdsch_ue</strong> will dump out raw hex bytes. To read it in a wireshark format, <strong>text2pcap</strong> is used.</p>
+<p>A header needs to be fixed before the hex dump for it to be read.</p>
+<p>Wireshark headers used for this:</p>
+<ul>
+<li>Paging request<br>
+<code>0000 01 01 01 02 ff fe 03 00 00 04 00 00 07 01 01</code>
+</li>
+<li>SIB1<br>
+<code>0000 01 01 04 02 ff ff 03 00 00 04 09 05 07 01 01</code>
+</li>
+<li>SIB2<br>
+<code>0000 01 01 04 02 ff ff 03 00 00 04 0a 12 07 01 01 00 00</code>
+</li>
+</ul>
+<p>then the payload is attached afterwards</p>
+<h2>
+<a id="user-content-files" class="anchor" href="#files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Files</h2>
+<table>
+  <thead>
+    <tr>
+      <th>New Files</th>
+      <th>Location</th>
+    
+  </tr>
+</thead>
+  <tbody>
+    <tr>
+      <td>pdsch_ue.c</td>
+      <td>/home/pi/srsLTE/lib/examples</td>
+    </tr>
+    <tr>
+      <td>cell_measurement.c</td>
+      <td>/home/pi/srsLTE/lib/examples</td>
+    </tr>
+  </tbody>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modified Files</th>
+      <th>Location</th>
+    
+  </tr>
+</thead>
+  <tbody>
+    <tr>
+      <td>parse_data.c</td>
+      <td>/home/pi/srsLTE/lib/include/srsLTE/</td>
+    </tr>
+    <tr>
+      <td>convert_to_csv.c</td>
+      <td>/home/pi/srsLTE/build/lib/examples</td>
+    </tr>
+    <tr>
+      <td>payload.txt</td>
+      <td>/home/pi/srsLTE/build/lib/examples</td>
+    </tr>
+    <tr>
+      <td>imsi.pcap</td>
+      <td>/home/pi/srsLTE/build/lib/examples</td>
+    </tr>
+    <tr>
+      <td>imsi.txt</td>
+      <td>/home/pi/srsLTE/build/lib/examples</td>
+    </tr>
+    <tr>
+      <td>imsi.csv</td>
+      <td>/home/pi/srsLTE/build/lib/examples</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h2>
+<a id="user-content-what-the-files-do" class="anchor" href="#what-the-files-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What the files do</h2>
+<h4>
+<a id="user-content-loop_catchersh" class="anchor" href="#loop_catchersh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>loop_catcher.sh</h4>
+<p>It first compiles <strong>srsLTE</strong> and <strong>convert_to_csv.c</strong></p>
+<p>Then enters a loop that runs <em>pdsch_ue</em>, changing between frequencies <em>1845000000 mhz</em> and <em>1815000000 mhz</em> each time.</p>
+<p>Each time the process ends, it runs <strong>convert_to_csv.c</strong> to get <em>imsi.csv</em> as well as running <strong>text2pcap</strong> to get <em>imsi.pcap</em></p>
+<p>Maybe the frequency of that should be changed as when there are a lot of payloads collected, the conversion to pcap can take awhile, delaying the next time <strong>pdsch_ue</strong> can be run</p>
+<hr>
+<h4>
+<a id="user-content-pdsch_ue" class="anchor" href="#pdsch_ue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>pdsch_ue</h4>
+<p>From srsLTE, this is the IMSI catcher</p>
+<blockquote>
+<p>Location:</p>
+<ul>
+<li>/home/pi/srsLTE/build/lib/examples/pdsch_ue -- executable</li>
+<li>/home/pi/srsLTE/lib/examples/pdsch_ue.c -- source file</li>
+</ul>
+</blockquote>
+<p>The IMSI catcher. functions that saves captured payloads are in <strong>parse_data.c</strong></p>
+<p>Syntax to run it</p>
+<div class="highlight highlight-source-shell"><pre>./pdsch_ue -f [frequency <span class="pl-k">in</span> hz] -r [rnti]</pre></div>
+<p>Two known frequencies are <em>1845000000</em> and <em>1815000000</em><br>
+For rnti, <em>0xfffe</em> works.</p>
+<blockquote>
+<p>Not to sure why <em>0xfffe</em> but it was mentioned <a href="https://github.com/tysonv7/CS3235-Project-/blob/master/GUTI%20Capture/README2.txt">here</a></p>
+</blockquote>
+<h5>
+<a id="user-content-when-the-pdsch_ue-runs" class="anchor" href="#when-the-pdsch_ue-runs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>When the pdsch_ue runs</h5>
+<blockquote>
+<p>Change these variables if you want to change where to save paging requests to. Although <strong>convert_to_c</strong> reads <em>imsi.txt</em> and <strong>loop_catcher.sh</strong> reads imsi_pcap.txt so you need to change those as well.</p>
+</blockquote>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">char</span> *parse_file = <span class="pl-s"><span class="pl-pds">"</span>imsi.txt<span class="pl-pds">"</span></span>;
+<span class="pl-k">char</span> *pcap_data = <span class="pl-s"><span class="pl-pds">"</span>imsi_pcap.txt<span class="pl-pds">"</span></span>;                 </pre></div>
+<ol>
+<li>Searches for a cell. If after multiple tries and a cell is still not found, try double checking the frequency.</li>
+</ol>
+<blockquote>
+<p>To get a frequency if you don't know it:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Samsung:<br>
+Dial *#0011#</li>
+<li>Iphone:<br>
+Dial *3001#12345#* and press the call button</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Convert the EARFCN to a frequency using <a href="http://niviuk.free.fr/lte_band.php" rel="nofollow">http://niviuk.free.fr/lte_band.php</a></p>
+</blockquote>
+<ol start="2">
+<li>Once cell is found, it enters the main loop and attempts to decode the MIB (around line 670).</li>
+</ol>
+<blockquote>
+<p><code>save_bytes</code> is a function from <strong>parse_data.c</strong> that is trying to break up how to decode the MIB which is in binary. That function is also commented out inside <strong>parse_data.c</strong></p>
+</blockquote>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span>line 670</span>
+<span class="pl-k">case</span> DECODE_MIB{
+<span class="pl-c"><span class="pl-c">//</span>Stuff</span>
+  n = <span class="pl-c1">srslte_ue_mib_decode</span>(&amp;ue_mib, bch_payload, <span class="pl-c1">NULL</span>, &amp;sfn_offset);
+    <span class="pl-k">if</span> (n &lt; <span class="pl-c1">0</span>) {
+      <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>Error decoding UE MIB<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+      <span class="pl-c1">exit</span>(-<span class="pl-c1">1</span>);
+  } <span class="pl-k">else</span> <span class="pl-k">if</span> (n == SRSLTE_UE_MIB_FOUND) {             
+  <span class="pl-c1">srslte_pbch_mib_unpack</span>(bch_payload, &amp;cell, &amp;sfn);
+    <span class="pl-c1">srslte_cell_fprint</span>(stdout, &amp;cell, sfn);
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Decoded MIB. SFN: <span class="pl-c1">%d</span>, offset: <span class="pl-c1">%d</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, sfn, sfn_offset);
+    <span class="pl-c"><span class="pl-c">//</span>save_bytes(pcap_data, parse_file, "MIB", bch_payload, 24);</span>
+    sfn = (sfn + sfn_offset)%<span class="pl-c1">1024</span>; 
+    state = DECODE_PDSCH;               
+  }
+}
+<span class="pl-k">break</span>;</pre></div>
+<ol start="3">
+<li>Once MIB is succesfully decoded, it then decodes PDSCH which is where the paging requests are captured.<br>
+Once the the bit of code below runs, data[0] will contain the paging requests.</li>
+</ol>
+<blockquote>
+<p>If this is the first time the UE is connecting to the network, the IMSI will be sent in the clear. After that, only s-TMSI will be sent on DL.</p>
+</blockquote>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span>When decoding PDSCH, line 705</span>
+<span class="pl-k">if</span> (cell.nof_ports == <span class="pl-c1">1</span>) {
+  <span class="pl-c"><span class="pl-c">/*</span> Transmission mode 1 (Single Transmission Antenna and Single Reciever Antenna)<span class="pl-c">*/</span></span> 
+    n = <span class="pl-c1">srslte_ue_dl_decode</span>(&amp;ue_dl, data, <span class="pl-c1">0</span>, sfn*<span class="pl-c1">10</span>+<span class="pl-c1">srslte_ue_sync_get_sfidx</span>(&amp;ue_sync), acks); 
+
+<span class="pl-c"><span class="pl-c">/*</span>Some stuff...<span class="pl-c">*/</span></span>
+
+<span class="pl-c"><span class="pl-c">//</span>line 750, data[0] is written written to payload.txt, imsi_pcap.txt and imsi.txt if it's an IMSI</span>
+<span class="pl-c1">save_bytes</span>(pcap_data, parse_file, <span class="pl-s"><span class="pl-pds">"</span>IMSI<span class="pl-pds">"</span></span>, data[<span class="pl-c1">0</span>], n/<span class="pl-c1">4</span>);
+ </pre></div>
+<p>Side note:
+<code>n = srslte_ue_mib_decode(&amp;ue_mib, bch_payload, NULL, &amp;sfn_offset);</code> and <code>n = srslte_ue_dl_decode(&amp;ue_dl, data, 0, sfn*10+srslte_ue_sync_get_sfidx(&amp;ue_sync), acks);</code> is really important because those functions will return data[0]</p>
+<hr>
+<h3>
+<a id="user-content-parse_datac" class="anchor" href="#parse_datac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>parse_data.c</h3>
+<p>All the functions that captures payloads while pdsch_ue is running</p>
+<blockquote>
+<p>Location:
+/home/pi/srsLTE/lib/include/srsLTE/parse-data.c</p>
+</blockquote>
+<p>Functions that are actually being called in the program.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span>All fo this is after line 110</span>
+
+<span class="pl-c"><span class="pl-c">//</span>Not used in the main program. Mainly for debugging when I just want to do a quick capture and don't want to scroll through.</span>
+<span class="pl-en">empty_file</span>(<span class="pl-k">char</span> *filename)
+
+<span class="pl-c"><span class="pl-c">//</span>The very useful function that saves the captured bytes and outputs io imsi.txt</span>
+save_bytes(<span class="pl-k">char</span> *pcap, <span class="pl-k">char</span> *output, <span class="pl-k">char</span> *type, <span class="pl-c1">uint8_t</span> *x, <span class="pl-k">const</span> <span class="pl-c1">uint32_t</span> len)
+
+<span class="pl-c"><span class="pl-c">//</span>Used just there to save any other numbers from the main program to the file for reference. Like comparing the MIB sfn decoded using print_MIB() and see if actually matches up to the one decoded by the program already. </span>
+save_bytes(<span class="pl-k">char</span> *pcap, <span class="pl-k">char</span> *output, <span class="pl-k">char</span> *type, <span class="pl-c1">uint8_t</span> *x, <span class="pl-k">const</span> <span class="pl-c1">uint32_t</span> len) {
+
+
+<span class="pl-c"><span class="pl-c">//</span>Again, for debugging. Just append a string to a file.</span>
+<span class="pl-c1">append_to_file</span>(<span class="pl-k">char</span> *filename, <span class="pl-k">char</span> *string){</pre></div>
+<p><code>save_bytes</code> should be elaborated on since it's doing all the work. Specifically <code>print_IMSI</code> which is called when save_bytes is used to read the paging requests from <strong>pdsch_ue</strong>.</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">print_IMSI</span>(<span class="pl-c1">FILE</span> *pcap, <span class="pl-c1">FILE</span> *output, <span class="pl-c1">uint8_t</span> *x, <span class="pl-k">const</span> <span class="pl-c1">uint32_t</span> len){
+  <span class="pl-k">char</span> header[] = <span class="pl-s"><span class="pl-pds">"</span>0000 01 01 01 02 ff fe 03 00 00 04 00 00 07 01 01<span class="pl-pds">"</span></span>; <span class="pl-c"><span class="pl-c">//</span>Paging request header</span>
+  <span class="pl-k">char</span> payload[len*<span class="pl-c1">2</span>+<span class="pl-c1">1</span>];
+  <span class="pl-k">bool</span> is_imsi;
+
+  <span class="pl-c1">FILE</span> *p;
+  p = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>payload.txt<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>);
+
+  <span class="pl-c1">fprintf</span>(pcap, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-c1">%s</span><span class="pl-pds">"</span></span>, header);
+  <span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">0</span>; i&lt;len; i++){
+    <span class="pl-c1">fprintf</span>(pcap, <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-c1">%02x</span><span class="pl-pds">"</span></span>, x[i]);
+    <span class="pl-c1">fprintf</span>(p, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%02x</span><span class="pl-pds">"</span></span>, x[i]);
+  }
+  <span class="pl-c1">fclose</span>(p);
+  p = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>payload.txt<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>);
+  <span class="pl-c1">fgets</span>(payload, len*<span class="pl-c1">2</span>+<span class="pl-c1">1</span>, p);
+  <span class="pl-c1">fclose</span>(p);
+
+  <span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">2</span>; i&lt;len*<span class="pl-c1">2</span>; i++){
+    <span class="pl-c"><span class="pl-c">//</span>This is checking if an IMSI exists.</span>
+    <span class="pl-k">if</span> (payload[i] == <span class="pl-s"><span class="pl-pds">'</span>9<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">1</span>] == <span class="pl-s"><span class="pl-pds">'</span>5<span class="pl-pds">'</span></span> &amp;&amp; !(payload[i+<span class="pl-c1">2</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">3</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; !(payload[i+<span class="pl-c1">4</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">5</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; !(payload[i+<span class="pl-c1">6</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">7</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">8</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">9</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; (payload[i+<span class="pl-c1">15</span>] == <span class="pl-s"><span class="pl-pds">'</span>8<span class="pl-pds">'</span></span> || payload[i+<span class="pl-c1">16</span>] == <span class="pl-s"><span class="pl-pds">'</span>8<span class="pl-pds">'</span></span>)){
+      is_imsi = <span class="pl-c1">true</span>;l
+      <span class="pl-k">for</span> (<span class="pl-k">int</span> k=i+<span class="pl-c1">1</span>; k&lt;=i+<span class="pl-c1">15</span>; k++){
+        <span class="pl-k">if</span> (<span class="pl-c1">isdigit</span>(payload[k])==<span class="pl-c1">0</span>){
+          is_imsi = <span class="pl-c1">false</span>;
+        }
+      }
+    }
+    <span class="pl-k">if</span> (is_imsi){
+      <span class="pl-k">if</span> (is_imsi){ <span class="pl-c"><span class="pl-c">//</span>Stuff to put in the csv</span>
+      <span class="pl-c1">fprintf</span>(output, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span>;<span class="pl-c1">%s</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, <span class="pl-c1">gettime</span>(), payload);
+      }
+      <span class="pl-k">break</span>;
+    }
+  }
+}</pre></div>
+<p>Payload is printed to payload.txt (so if it crashes you can easily see what was the last payload it crashed at.)<br>
+Also there were some issues <del>most probably because my C is atrocious</del> storing the payload directly into a variable and printing it. Then printed into a text2pcap format in <em>imsi_pcap.txt</em> and <em>imsi.txt</em></p>
+<p>Not going too much into detail about how it looks for IMSI since it's more in-depth in <strong>convert_to_csv</strong>.<br>
+Over here it's just checking if an IMSI exists. If it does, it will filter it out to <em>imsi.txt</em>.</p>
+<hr>
+<h3>
+<a id="user-content-convert_to_csvc" class="anchor" href="#convert_to_csvc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>convert_to_csv.c</h3>
+<p><strong>Kind important!</strong>
+If there is an empty line at the beginning of the file, it will crash. Removing that should make it work.</p>
+<p><del>somewhat</del> parses captured payloads from <em>imsi.txt</em> to _imsi.csv
+Runs after <strong>pdsch_ue</strong> and converts the filtered IMSI in <em>imsi.txt</em> to a csv file.</p>
+<blockquote>
+<p>Can also be used to filter IMSI as long as it's in the right format.</p>
+</blockquote>
+<p>Checking if IMSI exists in the payload<br>
+Criteria for IMSI:</p>
+<ul>
+<li>In the payload, the IMSI appears like this
+<blockquote>
+<p>[9][IMSI Number][8]</p>
+</blockquote>
+</li>
+<li>IMSI = MCC + MNC + MSIN
+<ul>
+<li>MNC must be more than 0</li>
+<li>MCC must be between 500 and 599</li>
+</ul>
+<blockquote>
+<p>[9][5][ ][ ][MNC][ ][8]</p>
+</blockquote>
+</li>
+<li>Does not contain hex, hence whole string can only be made of digits.</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">for</span> (<span class="pl-k">int</span> i=<span class="pl-c1">0</span>; i&lt;strlen(payload); i++){
+  <span class="pl-k">if</span> (payload[i] == <span class="pl-s"><span class="pl-pds">'</span>9<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">1</span>] == <span class="pl-s"><span class="pl-pds">'</span>5<span class="pl-pds">'</span></span> &amp;&amp; !(payload[i+<span class="pl-c1">2</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">3</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; !(payload[i+<span class="pl-c1">4</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">5</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; !(payload[i+<span class="pl-c1">6</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">7</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">8</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span> &amp;&amp; payload[i+<span class="pl-c1">9</span>]==<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) &amp;&amp; (payload[i+<span class="pl-c1">15</span>] == <span class="pl-s"><span class="pl-pds">'</span>8<span class="pl-pds">'</span></span> || payload[i+<span class="pl-c1">16</span>] == <span class="pl-s"><span class="pl-pds">'</span>8<span class="pl-pds">'</span></span>)){
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> j=<span class="pl-c1">16</span>; j&gt;<span class="pl-c1">14</span>; j--){
+      <span class="pl-k">if</span> (payload[i+j] == <span class="pl-s"><span class="pl-pds">'</span>8<span class="pl-pds">'</span></span>){
+        imsi_index = i+<span class="pl-c1">1</span>;
+        imsi_length = j-<span class="pl-c1">1</span>;
+        found_imsi = <span class="pl-c1">true</span>;
+        <span class="pl-k">break</span>;
+      }
+    }  
+  }
+}</pre></div>
+<p>Once IMSI is found, based on the index just carve it out from there.</p>
+<p>However there are occasional exceptions where S-TMSI is caught in the same frame as IMSI.</p>
+<p>Still needs a bit of fixing to find the S-TMSI if it appears after the IMSI. That part is commented out.</p>
+<p>Checking for S-TMSI:</p>
+<ul>
+<li>S-TMSI = MMEC + MSIN (In hex)
+<ul>
+<li>MMEC, 2 char</li>
+<li>MSIN, 8 char</li>
+</ul>
+</li>
+<li>How it can appear:
+<ul>
+<li>[S-TMSI][IMSI]</li>
+<li>[IMSI][S-TMSI]</li>
+<li>[S-TMSI][IMSI][S-TMSI]</li>
+<li>[S-TMSI][0][S-TMSI][IMSI]</li>
+<li>[IMSI][S-TMSI][0][S-TMSI]</li>
+</ul>
+</li>
+</ul>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">if</span> (imsi_index &gt; <span class="pl-c1">14</span> &amp;&amp; index &gt; <span class="pl-c1">14</span> &amp;&amp; counter != <span class="pl-c1">1</span>){
+    <span class="pl-c1">print_s_tmsi</span>(csv, payload, <span class="pl-c1">index</span>-<span class="pl-c1">11</span>, <span class="pl-c1">10</span>, s_tmsi_check, s_tmsi_checked); 
+    <span class="pl-c1">index</span> -= <span class="pl-c1">10</span>;
+    s_tmsi_check = <span class="pl-c1">false</span>;
+  } <span class="pl-c"><span class="pl-c">/*</span>else if (payload[imsi_length+index+2] != '0' &amp;&amp; payload[imsi_length+index+3] != '0' &amp;&amp; index &gt;= imsi_index &amp;&amp; index+imsi_length &lt; strlen(payload)){</span>
+<span class="pl-c">    print_s_tmsi(csv, payload, index+imsi_length+1, 10, s_tmsi_check, s_tmsi_checked);</span>
+<span class="pl-c">    index += 10;</span>
+<span class="pl-c">    s_tmsi_check = false;</span>
+<span class="pl-c">  } <span class="pl-c">*/</span></span><span class="pl-k">else</span> {
+    <span class="pl-c1">index</span> = imsi_index;
+    counter++;
+  }</pre></div>
+<hr>
+<h3>
+<a id="user-content-cell_measurement" class="anchor" href="#cell_measurement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>cell_measurement</h3>
+<p><strong>TODO</strong>
+SIB1 and SIB2 blocks can be captured here. SIB1 is captured but still working out where SIB2 is.<br>
+Theoretically it should be in the same payload as SIB1 since when it was put through wireshark, there were a lot of extra bytes. Need to confirm though.</p>
+<p>Below is the part where SIB block is decoded</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span>Line 333</span>
+<span class="pl-k">case</span> DECODE_SIB:
+  <span class="pl-c"><span class="pl-c">/*</span> We are looking for SI Blocks, search only in appropiate places <span class="pl-c">*/</span></span>
+  <span class="pl-k">if</span> ((srslte_ue_sync_get_sfidx(&amp;ue_sync) == <span class="pl-c1">5</span> &amp;&amp; (sfn%<span class="pl-c1">2</span>)==<span class="pl-c1">0</span>)) {
+    n = <span class="pl-c1">srslte_ue_dl_decode</span>(&amp;ue_dl, data, <span class="pl-c1">0</span>, sfn*<span class="pl-c1">10</span>+<span class="pl-c1">srslte_ue_sync_get_sfidx</span>(&amp;ue_sync), acks);
+    <span class="pl-k">if</span> (n &lt; <span class="pl-c1">0</span>) {
+      <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>Error decoding UE DL<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);<span class="pl-c1">fflush</span>(stdout);
+      <span class="pl-k">return</span> -<span class="pl-c1">1</span>;
+    } <span class="pl-k">else</span> <span class="pl-k">if</span> (n == <span class="pl-c1">0</span>) {
+      <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>CFO: <span class="pl-c1">%+6.4f</span> kHz, SFO: <span class="pl-c1">%+6.4f</span> kHz, PDCCH-Det: <span class="pl-c1">%.3f</span><span class="pl-cce">\r</span><span class="pl-pds">"</span></span>,
+              <span class="pl-c1">srslte_ue_sync_get_cfo</span>(&amp;ue_sync)/<span class="pl-c1">1000</span>, <span class="pl-c1">srslte_ue_sync_get_sfo</span>(&amp;ue_sync)/<span class="pl-c1">1000</span>, 
+              (<span class="pl-k">float</span>) ue_dl.<span class="pl-smi">nof_detected</span>/nof_trials);
+      nof_trials++; 
+    } <span class="pl-k">else</span> {
+      <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Decoded SIB1. Payload: <span class="pl-pds">"</span></span>);
+      <span class="pl-c1">srslte_vec_fprint_byte</span>(stdout, data[<span class="pl-c1">0</span>], n/<span class="pl-c1">8</span>);;
+      <span class="pl-c1">save_bytes</span>(<span class="pl-s"><span class="pl-pds">"</span>database.txt<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>sniffing_data.txt<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SIB1<span class="pl-pds">"</span></span>, data[<span class="pl-c1">0</span>], n);
+      <span class="pl-k">break</span>;
+    }
+  }</pre></div>
+<hr>
+<h3>
+<a id="user-content-others" class="anchor" href="#others" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Others</h3>
+<ul>
+<li>
+<strong>payload.txt</strong> -- stores the most recent payload captured. Read by <strong>pdsch_ue</strong> to store payload to other files.</li>
+<li>
+<strong>imsi.pcap</strong> -- all the payloads with the paging header added in front for it to be formatted into a wireshark with
+<code>text2pcap input_file output_file -l 147</code>
+</li>
+<li>
+<strong>imsi.txt</strong> -- filtered IMSI's captured are appended here to read by <strong>convert_to_csv</strong>. Can be seen updated live if opened in sublime text.
+-- <strong>imsi.csv</strong> -- The output file. Filtered out IMSI's are broken down into country code(MCC), operator(MNC), and identity number assigned by operator(MSIN). If S-TMSI is captured in the same frame, it is included as well.</li>
+</ul>
+<hr>
+<h2>
+<a id="user-content-future-work" class="anchor" href="#future-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future work</h2>
+<ul>
+<li>
+<p>Fix <strong>convert_to_csv.c</strong></p>
+<ul>
+<li>If S-TMSIs are caught in the same frame, it doesn't carve it out if it appears after the IMSI</li>
+<li>When parsed into wireshark, the packets that contain only an imsi at the beginning of the block is cut off. Some bytes can be seen at the point it is cut off. Possibly S-TMSI? But it's a bit too long to be it though.</li>
+</ul>
+<blockquote>
+<p>If it's true that the S-TMSI that was cut off is the one assigned to the IMSI, you could possibly follow it around the network. <a href="#useful-reading-material">Sniff and Capture</a></p>
+</blockquote>
+</li>
+<li>
+<p>Capture <strong>SIB2</strong> blocks in <strong>cell_measurement.c</strong> for the system configurations</p>
+<blockquote>
+<p>Could be possible to set up a rogue eNB and get UEs to connect to it instead.</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2>
+<a id="user-content-references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2>
+<h4>
+<a id="user-content-useful-reading-material" class="anchor" href="#useful-reading-material" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Useful reading material</h4>
+<ul>
+<li>4G/LTE IMSI Catchers for Non-Programmers [1]<br>
+<a href="https://arxiv.org/pdf/1702.04434.pdf" rel="nofollow">https://arxiv.org/pdf/1702.04434.pdf</a>
+</li>
+<li>LTE security, protocol exploitation and location tracking experimentation with low-cost software radio [2]<br>
+<a href="https://arxiv.org/pdf/1607.05171.pdf" rel="nofollow">https://arxiv.org/pdf/1607.05171.pdf</a><br>
+<a href="http://rogerpiquerasjover.net/LTE_5G_security_VATech.pdf" rel="nofollow">http://rogerpiquerasjover.net/LTE_5G_security_VATech.pdf</a> (The slides for it)</li>
+<li>Practical Attacks Agaisnt Privacy and Availability in 4G/LTE Mobile Communication Systems [3]<br>
+<a href="https://arxiv.org/pdf/1510.07563.pdf" rel="nofollow">https://arxiv.org/pdf/1510.07563.pdf</a>
+</li>
+<li>Sniff and Capture  pg (57-61) [4]<br>
+<a href="https://www.comp.nus.edu.sg/~hugh/CS3235/PREVIOUSPROJECTS/CS3235-SemII-2015-16-Projects.pdf" rel="nofollow">https://www.comp.nus.edu.sg/~hugh/CS3235/PREVIOUSPROJECTS/CS3235-SemII-2015-16-Projects.pdf</a>
+</li>
+</ul>
+<h4>
+<a id="user-content-quick-references" class="anchor" href="#quick-references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick references</h4>
+<ul>
+<li>Convert EARFCN to frequency [5]<br>
+<a href="http://niviuk.free.fr/lte_band.php" rel="nofollow">http://niviuk.free.fr/lte_band.php</a>
+</li>
+<li>Useful lte encyclopedia for the ludicrous amount for acronyms [6]<br>
+<a href="https://sites.google.com/site/lteencyclopedia/lte-acronyms" rel="nofollow">https://sites.google.com/site/lteencyclopedia/lte-acronyms</a>
+</li>
+<li>Find frequency on Iphone or Android [7]<br>
+<a href="https://www.stelladoradus.com/finding-my-frequency-on-my-iphone/" rel="nofollow">https://www.stelladoradus.com/finding-my-frequency-on-my-iphone/</a>
+</li>
+</ul>
+<h4>
+<a id="user-content-very-nice-code-d" class="anchor" href="#very-nice-code-d" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Very nice code =D</h4>
+<ul>
+<li>LTE sniffer (much older version of srsLTE) [8]<br>
+<a href="https://github.com/tysonv7/CS3235-Project-">https://github.com/tysonv7/CS3235-Project-</a>
+</li>
+</ul>
+</table></article></body></html>

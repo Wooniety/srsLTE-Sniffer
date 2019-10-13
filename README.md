@@ -1,4 +1,4 @@
-_# Documentation for IMSI catcher
+# Documentation for IMSI catcher
 ------
 ## Contents
 - [What it does](#what-it-does-in-a-summary)

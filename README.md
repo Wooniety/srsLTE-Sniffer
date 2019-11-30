@@ -1,23 +1,36 @@
 # Documentation for IMSI catcher
-------
-## Contents
-- [What it does](#what-it-does-in-a-summary)
-- [Captured stuff](#what-it-could-capture)
-- [Wireshark](#reading-wireshark-files)
-- [Files](#files)
-- [What the Files do](#what-the-files-do)
-  - [loop_catcher.sh](#loop_catchersh)
-  - [pdsch_ue](#pdsch_ue)
-  - [parse_data.c](#parse_datac)
-  - [convert_to_csv.c](#convert_to_csvc)
-  - [cell_measurement](#cell_measurement)
-  - [Others](#others)
-- [Future Work](#future-work)
-- [References](#references)
 
+## Contents
+
+- [Documentation for IMSI catcher](#documentation-for-imsi-catcher)
+
+  - [Contents](#contents)
+    - [What it does in a summary](#what-it-does-in-a-summary)
+    - [Prerequisites](#prerequisites)
+    - [Running The Catcher](#running-the-catcher)
+  - [What it could capture](#what-it-could-capture)
+  - [Reading Wireshark files](#reading-wireshark-files)
+    - [Useful filters](#useful-filters)
+    - [Reading the hex](#reading-the-hex)
+  - [Files](#files)
+  - [What the files do](#what-the-files-do)
+    - [loop_catcher.sh](#loopcatchersh)
+    - [pdsch_ue](#pdschue)
+      - [When the pdsch_ue runs](#when-the-pdschue-runs)
+    - [parse_data.c](#parsedatac)
+    - [convert_to_csv.c](#converttocsvc)
+    - [cell_measurement](#cellmeasurement)
+    - [Others](#others)
+  - [Future work](#future-work)
+  - [References](#references)
+    - [Useful reading material](#useful-reading-material)
+    - [Quick references](#quick-references)
+    - [Others =D](#others-d)
 
 ---
+
 ### What it does in a summary
+
 Catches IMSI (The unique identifiers for SIM cards) using **pdsch_ue** and parses paging requests into _imsi.pcap_ while IMSI's are filtered into _imsi.csv_
 
 ### Prerequisites
@@ -26,6 +39,7 @@ Catches IMSI (The unique identifiers for SIM cards) using **pdsch_ue** and parse
 - clone the [srsLTE repo](https://github.com/srsLTE/srsLTE)
 
 ### Running The Catcher
+
 ```bash
 cd {path_to_srsLTE}/srsLTE/build/lib/examples
 bash loop_catcher.sh
@@ -43,7 +57,9 @@ If it is catching the signal properly, there should be a nice constellation.
   Curve should be very distinguishable. The first to freak out and show very intense activity if the signal messes up.
 
 ---
+
 ## What it could capture
+
 - Master Information Block  
   Very important to if you want to decode everything else but does not really hold information besides that.
 - System Information Block 
@@ -67,14 +83,17 @@ If it is catching the signal properly, there should be a nice constellation.
 ---
 
 ## Reading Wireshark files
+
 Captured stuff is in _imsi.txt_
 
 #### Useful filters
+
 - Packets with IMSI in it - `lte-rrc.ue_Identity == 1`  
 - Only s-TMSI - `lte-rrc.ue_Identity == 0`
 - Strange packets that contain s-tmsi with IMSI - `lte-rrc.ue_Identity == 1 && frame.len > 45`
 
 #### Reading the hex
+
 **pdsch_ue** will dump out raw hex bytes. To read it in a wireshark format, **text2pcap** is used. 
 
 A header needs to be fixed before the hex dump for it to be read.  
@@ -135,9 +154,11 @@ then the payload is attached afterwards
 </table>
 
 ---
+
 ## What the files do
 
 #### loop_catcher.sh
+
 It first compiles **srsLTE** and **convert_to_csv.c**  
 
 Then enters a loop that runs _pdsch_ue_, changing between frequencies _1845000000 mhz_ and _1815000000 mhz_ each time.  
@@ -147,12 +168,14 @@ Each time the process ends, it runs **convert_to_csv.c** to get _imsi.csv_ as we
 Maybe the frequency of that should be changed as when there are a lot of payloads collected, the conversion to pcap can take awhile, delaying the next time **pdsch_ue** can be run
 
 ---
+
 #### pdsch_ue
+
 From srsLTE, this is the IMSI catcher
 
 >Location:
->- {path_to_srsLTE}/srsLTE/build/lib/examples/pdsch_ue -- executable  
->- {path_to_srsLTE}/srsLTE/lib/examples/pdsch_ue.c -- source file
+> - {path_to_srsLTE}/srsLTE/build/lib/examples/pdsch_ue -- executable  
+> - {path_to_srsLTE}/srsLTE/lib/examples/pdsch_ue.c -- source file
 
 The IMSI catcher. functions that saves captured payloads are in **parse_data.c**
 
@@ -165,6 +188,7 @@ For rnti, _0xfffe_ works.
 > Not to sure why _0xfffe_ but it was mentioned [here](https://github.com/tysonv7/CS3235-Project-/blob/master/GUTI%20Capture/README2.txt)
 
 ##### When the pdsch_ue runs
+
 >Change these variables if you want to change where to save paging requests to. Although **convert_to_c** reads _imsi.txt_ and **loop_catcher.sh** reads imsi_pcap.txt so you need to change those as well.
 ```C
 char *parse_file = "imsi.txt";
@@ -229,7 +253,7 @@ All the functions that captures payloads while pdsch_ue is running
 
 Functions that are actually being called in the program.
 ```C
-//All fo this is after line 110
+//All of this is after line 110
 
 //Not used in the main program. Mainly for debugging when I just want to do a quick capture and don't want to scroll through.
 empty_file(char *filename)
@@ -291,7 +315,9 @@ Not going too much into detail about how it looks for IMSI since it's more in-de
 Over here it's just checking if an IMSI exists. If it does, it will filter it out to _imsi.txt_.
 
 ---
+
 ### convert_to_csv.c
+
 **Kind of important!**
 If there is an empty line at the beginning of the file, it will crash. Removing that should make it work.
 
@@ -390,7 +416,9 @@ case DECODE_SIB:
 ```
 
 ---
+
 ### Others
+
 - **payload.txt** -- stores the most recent payload captured. Read by **pdsch_ue** to store payload to other files.
 - **imsi.pcap** -- all the payloads with the paging header added in front for it to be formatted into a wireshark with
 `text2pcap input_file output_file -l 147`
@@ -398,6 +426,7 @@ case DECODE_SIB:
 -- **imsi.csv** -- The output file. Filtered out IMSI's are broken down into country code(MCC), operator(MNC), and identity number assigned by operator(MSIN). If S-TMSI is captured in the same frame, it is included as well.
 
 ------
+
 ## Future work
 
 - Fix **convert_to_csv.c**
@@ -410,9 +439,11 @@ case DECODE_SIB:
 
 
 ------
+
 ## References
 
 #### Useful reading material
+
 - 4G/LTE IMSI Catchers for Non-Programmers [1]  
 https://arxiv.org/pdf/1702.04434.pdf
 - LTE security, protocol exploitation and location tracking experimentation with low-cost software radio [2]  
@@ -423,8 +454,8 @@ https://arxiv.org/pdf/1510.07563.pdf
 - Sniff and Capture  pg (57-61) [4]  
 https://www.comp.nus.edu.sg/~hugh/CS3235/PREVIOUSPROJECTS/CS3235-SemII-2015-16-Projects.pdf
 
-
 #### Quick references
+
 - Convert EARFCN to frequency [5]  
 http://niviuk.free.fr/lte_band.php
 - Useful lte encyclopedia for the ludicrous amount for acronyms [6]    

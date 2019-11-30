@@ -20,20 +20,18 @@
 ### What it does in a summary
 Catches IMSI (The unique identifiers for SIM cards) using **pdsch_ue** and parses paging requests into _imsi.pcap_ while IMSI's are filtered into _imsi.csv_
 
-### Running The Catcher
-Besides srsLTE, make sure the package **text2pcap** is installed.
+### Prerequisites
 
+- [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html)
+- clone the [srsLTE repo](https://github.com/srsLTE/srsLTE)
+
+### Running The Catcher
 ```bash
-cd /home/pi/srsLTE/build/lib/examples
+cd {path_to_srsLTE}/srsLTE/build/lib/examples
 bash loop_catcher.sh
 ```
 
-If **pdsch_ue** succesfully found a cell, it should show stuff in the screenshot below.
-![](Screenshots/run.png "Terminal fills up very quickly once the main loop is in the stage of decoding PDSCH")
-
 If it is catching the signal properly, there should be a nice constellation.
-![](Screenshots/constellation1.png)
-![](Screenshots/constellation2.png)
 
 - PDSCH - Equalised Symbols  
   Should not be too crazy. The 4 dots should be very clear. Doesn't show if something is wrong with the signal.
@@ -96,17 +94,14 @@ then the payload is attached afterwards
   <thead>
     <tr class="header">
       <th>Modified Files</th>
-      <th>Location</th>
     </th>
   </thead>
   <tbody>
     <tr>
       <td>pdsch_ue.c</td>
-      <td>/home/pi/srsLTE/lib/examples</td>
     </tr>
     <tr>
       <td>cell_measurement.c</td>
-      <td>/home/pi/srsLTE/lib/examples</td>
     </tr>
   </tbody>
 </tabl>
@@ -120,27 +115,21 @@ then the payload is attached afterwards
   <tbody>
     <tr>
       <td>parse_data.c</td>
-      <td>/home/pi/srsLTE/lib/include/srsLTE/</td>
     </tr>
     <tr>
       <td>convert_to_csv.c</td>
-      <td>/home/pi/srsLTE/build/lib/examples</td>
     </tr>
     <tr>
       <td>payload.txt</td>
-      <td>/home/pi/srsLTE/build/lib/examples</td>
     </tr>
     <tr>
       <td>imsi.pcap</td>
-      <td>/home/pi/srsLTE/build/lib/examples</td>
     </tr>
     <tr>
       <td>imsi.txt</td>
-      <td>/home/pi/srsLTE/build/lib/examples</td>
     </tr>
     <tr>
       <td>imsi.csv</td>
-      <td>/home/pi/srsLTE/build/lib/examples</td>
     </tr>
   </tbody>
 </table>
@@ -162,8 +151,8 @@ Maybe the frequency of that should be changed as when there are a lot of payload
 From srsLTE, this is the IMSI catcher
 
 >Location:
->- /home/pi/srsLTE/build/lib/examples/pdsch_ue -- executable  
->- /home/pi/srsLTE/lib/examples/pdsch_ue.c -- source file
+>- {path_to_srsLTE}/srsLTE/build/lib/examples/pdsch_ue -- executable  
+>- {path_to_srsLTE}/srsLTE/lib/examples/pdsch_ue.c -- source file
 
 The IMSI catcher. functions that saves captured payloads are in **parse_data.c**
 
@@ -236,7 +225,7 @@ Side note:
 All the functions that captures payloads while pdsch_ue is running  
 
 >Location:
-/home/pi/srsLTE/lib/include/srsLTE/parse-data.c
+{path_to_srsLTE}/srsLTE/lib/include/srsLTE/parse-data.c
 
 Functions that are actually being called in the program.
 ```C
@@ -303,7 +292,7 @@ Over here it's just checking if an IMSI exists. If it does, it will filter it ou
 
 ---
 ### convert_to_csv.c
-**Kind important!**
+**Kind of important!**
 If there is an empty line at the beginning of the file, it will crash. Removing that should make it work.
 
 ~~somewhat~~ parses captured payloads from _imsi.txt_ to _imsi.csv

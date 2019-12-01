@@ -69,7 +69,7 @@ If it is catching the signal properly, there should be a nice constellation.
       - Operator (MNC)
   - SIB2 -- TODO
     - Some system configuration settings
-      Theoroetically could make a rouge eNB using the settings from SIB2
+      Theoretically could make a rouge eNB using the settings from SIB2
       > recieved powerthreshold  to  trigger  a  handoff  to  an  adjacent  cell  and  aseries  of  configuration  parameters  that  could  be  leveraged  toconfigure a rogue base station. [3]
 - Paging requests
   - IMSI (Not more than 15 digits)
@@ -109,6 +109,7 @@ Headers for different messages in _imsi_pcap.txt_ (Before it gets process by _te
 then the payload is attached afterwards
 
 ## Files
+
 <table>
   <thead>
     <tr class="header">
@@ -201,7 +202,7 @@ char *pcap_data = "imsi_pcap.txt";
 >- Samsung:  
   Dial \*#0011#  
 >- Iphone:  
-Dial \*3001#12345#\* and press the call button  
+  Dial \*3001#12345#\* and press the call button  
 
 >  Convert the EARFCN to a frequency using http://niviuk.free.fr/lte_band.php  
 2. Once cell is found, it enters the main loop and attempts to decode the MIB (around line 670). 
@@ -246,6 +247,7 @@ Side note:
 
 ---
 ### parse_data.c 
+
 All the functions that captures payloads while pdsch_ue is running  
 
 >Location:
@@ -386,6 +388,7 @@ if (imsi_index > 14 && index > 14 && counter != 1){
 
 ---
 ### cell_measurement
+
 **TODO**
 SIB1 and SIB2 blocks can be captured here. SIB1 is captured but still working out where SIB2 is.  
 Theoretically it should be in the same payload as SIB1 since when it was put through wireshark, there were a lot of extra bytes. Need to confirm though.
@@ -442,7 +445,7 @@ case DECODE_SIB:
 
 ## References
 
-#### Useful reading material
+### Useful reading material
 
 - 4G/LTE IMSI Catchers for Non-Programmers [1]  
 https://arxiv.org/pdf/1702.04434.pdf
@@ -454,7 +457,7 @@ https://arxiv.org/pdf/1510.07563.pdf
 - Sniff and Capture  pg (57-61) [4]  
 https://www.comp.nus.edu.sg/~hugh/CS3235/PREVIOUSPROJECTS/CS3235-SemII-2015-16-Projects.pdf
 
-#### Quick references
+### Quick references
 
 - Convert EARFCN to frequency [5]  
 http://niviuk.free.fr/lte_band.php
@@ -463,7 +466,7 @@ https://sites.google.com/site/lteencyclopedia/lte-acronyms
 - Find frequency on Iphone or Android [7]  
 https://www.stelladoradus.com/finding-my-frequency-on-my-iphone/
 
-#### Others =D
+### Others
 - LTE sniffer (much older version of srsLTE) [8]  
 https://github.com/tysonv7/CS3235-Project-   
 - SRS Airscope Demonstration  

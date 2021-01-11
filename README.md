@@ -1,5 +1,8 @@
 # Documentation for IMSI catcher
 
+# BIG IMPORTANT NOTE
+Hi I don't have access to the equipment anymore so I can't maintain this. Hence, I'm archiving this unless I get the chance to again.
+
 ## Contents
 
 - [Documentation for IMSI catcher](#documentation-for-imsi-catcher)
